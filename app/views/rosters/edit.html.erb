@@ -1,0 +1,18 @@
+<h1>Edit Roster</h1>
+<%= render 'shared/errors', obj: @roster %>
+
+<%= form_with(model: @roster, local: true) do |f| %>
+  <p>
+    <%= f.label :Roster_Date %><br/>
+    <%= f.date_field :roster_date %>
+  </p>
+  <p>
+    <%= f.label :Company%><br/>
+    <%= f.collection_select :company_id, Company.all, :id, :name %></p>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+

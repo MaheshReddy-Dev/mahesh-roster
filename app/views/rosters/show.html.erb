@@ -1,0 +1,5 @@
+<h1>Showing Roster details</h1>
+  <p><strong>Roster Date: </strong><%= @roster.roster_date %></p>
+  <p><strong>Company name: </strong><%= @roster.company.name %></p>
+   <%= link_to 'Edit', edit_roster_path(@edit) %> |
+   <%= link_to 'Delete' , roster_path(@roster), data: {turbo_method: :delete, turbo_confirm: 'Are you sure want to delete?'} %> 
