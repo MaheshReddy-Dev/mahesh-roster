@@ -6,13 +6,6 @@ ActiveAdmin.register Company do
   # Uncomment all parameters which should be permitted for assignment
   #
    permit_params :name, :website
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:name, :website]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
+
   
 end
