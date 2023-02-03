@@ -1,26 +1,24 @@
-<h1>Listing Rosters</h1>
-
+<h1>Roster</h1>
 <table>
   <thead>
     <tr>
+      <th>Company</th>
       <th>Roster Date</th>
-      <th>Company Name</th>
-      <th colspan="3"></th>
+      <th>Actions</th>
     </tr>
   </thead>
-
   <tbody>
-    <% @rosters.each do |roster| %>
+    <% @rosters.each do |r| %>
       <tr>
-        <td><%= roster.roster_date %></td>
-        <td><%= roster.company.name %></td>
-        <td><%= task.project.title%></td>
-        <td><%= link_to 'Show', roster_path(roster) %></td>
-        <td><%= link_to 'Edit', edit_roster_path(roster) %></td>
-        <td><%= link_to 'Delete', roster_path(roster), data: {turbo_method: :delete, turbo_confirm: 'Are you sure want to delete?'} %></td>
+        <td><%= r.company.name %></td>
+        <td><%= r.roster_date %></td>
+        <td><%= link_to 'Show', r %>
+        <%= link_to 'Edit', edit_roster_path(r) %>
+        <%= link_to 'Delete', roster_path(r), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
+<h3>
+ <%= link_to "Back to Manager DashBoard", root_path %><br/>
+</h3>

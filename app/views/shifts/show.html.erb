@@ -1,0 +1,7 @@
+<%= render @shift %>
+
+<h2>
+  <%= link_to "Edit this shift", edit_shift_path(@shift) %> |
+  <%= link_to "Back to shifts", shifts_path %> |
+  <%= link_to "Destroy this shift", @shift, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+</h2>

@@ -16,6 +16,7 @@ gem 'activeadmin'
 
 # Required for ActiveAdmin
 gem 'sass-rails'
+gem 'jquery-turbolinks'
 
 # Plus integrations with:
 gem 'devise'

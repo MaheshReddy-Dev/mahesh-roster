@@ -4,9 +4,10 @@
     <h3><p><b>You are a <%= current_user.role %> at <%= current_user.company.name%></b></p></h3>
     <% if current_user.Manager? %>
        <h1><u>Manager DashBoard</u></h1>
-       <h2><p>Hello <%= current_user.username %></p></h2>
-       <%= link_to "Create Roster", new_rosters_path %>
-       <%= link_to "View Rosters", rosters_path %>
+       <h3><%= link_to "Create Roster", new_roster_path %> |
+       <%= link_to "View Rosters", rosters_url %> |
+       <%= link_to "view Shifts", shifts_url %> |
+       <%= link_to "For Admin Login", "/admin" %></strong></h3>
        <h2><%= link_to "Sign out", destroy_user_session_path,data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></h2>
     <% else %>
     <h2>

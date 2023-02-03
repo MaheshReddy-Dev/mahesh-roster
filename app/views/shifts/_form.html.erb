@@ -1,0 +1,24 @@
+<%= form_with(model: shift) do |f| %>
+    <p>
+      <%= f.hidden_field :roster_id, value: params[:roster_id]%>
+    </p>
+    <p>
+      <%= f.label :Start_time%>
+      <%= f.time_field :start_time %>
+    </p>
+    
+    <p>
+      <%= f.label :End_time%>
+      <%= f.time_field :end_time %>
+    </p>
+  
+    <p>
+      <%= f.label :employee_id%>
+      <%= f.collection_select :employee_id, Employee.all, :id, :name %>
+    </p>
+  
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
+  

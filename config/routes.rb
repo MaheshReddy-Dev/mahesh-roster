@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  resources :rosters
+  resources :shifts
   devise_for :users
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  resource :rosters
+  resource :pages, only: [:index]
 
   #root_to = 'admin/dashboard#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

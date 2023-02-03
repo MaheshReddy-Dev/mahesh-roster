@@ -1,5 +1,11 @@
-<h1>Showing Roster details</h1>
-  <p><strong>Roster Date: </strong><%= @roster.roster_date %></p>
-  <p><strong>Company name: </strong><%= @roster.company.name %></p>
-   <%= link_to 'Edit', edit_roster_path(@edit) %> |
-   <%= link_to 'Delete' , roster_path(@roster), data: {turbo_method: :delete, turbo_confirm: 'Are you sure want to delete?'} %> 
+<%= render @roster %>
+
+<h2>
+  <%= link_to "Edit this roster", edit_roster_path(@roster) %> |
+  <%= link_to "Back to rosters", rosters_path %> |
+  <%= link_to "Destroy this roster", @roster,data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %><br/>
+</h2>
+<h3>
+  <%= link_to "Add Shift to employee", new_shift_path(roster_id: @roster.id) %> |
+  <%= link_to "View shifts", shifts_url %> 
+</h3>
