@@ -5,7 +5,7 @@ ActiveAdmin.register Employee do
   form do |f|
    f.inputs do
     f.input :name
-    f.input :company_id, as: :select, collection: Company.all, input_html: { class: 'chzn-select', width: 'auto', "data-placeholder" => 'Click', include_blank: "-none-", include_hidden: false }
+    f.input :company_id, as: :select, collection: Company.all
     f.input :role, as: :select, collection: ['Technician','Developer','SupportRole']
     f.input :mail_id
     f.input :salary

@@ -6,6 +6,15 @@ ActiveAdmin.register Shift do
   # Uncomment all parameters which should be permitted for assignment
   #
    permit_params :start_time, :end_time, :roster_id, :employee_id
+   form do |f|
+    f.inputs do
+      f.input :start_time, as: :time_select, ampm: true, minute_step: 15
+      f.input :end_time, as: :time_select, ampm: true, minute_step: 15      
+      f.input :roster_id, as: :select, collection: Roster.all 
+      f.input :employee_id, as: :select, collection: Employee.all
+      end
+    f.actions
+   end
   #
   # or
   #

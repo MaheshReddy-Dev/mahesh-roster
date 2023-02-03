@@ -15,7 +15,7 @@
         <td><%= s.start_time %></td>
         <td><%= s.end_time %></td>
         <td><%= s.employee.name %></td>
-        <td><%= s.employee.role%></td>
+        <td><%= s.employee.role.present? ? s.employee.role : "not assigned" %></td>
         <td><%= link_to 'Show', s %> |
         <%= link_to 'Edit', edit_shift_path(s) %> |
         <%= link_to 'Delete', shift_path(s),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></td>

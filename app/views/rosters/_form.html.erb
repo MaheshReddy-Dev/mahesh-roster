@@ -1,14 +1,13 @@
-<%= form_with(model: roster) do |f| %>
-  
+<%= form_with(model: roster) do |f| %><h3>
   <p>
     <%= f.label :roster_date%>
-    <%= f.date_field :roster_date %>
+    <%= f.date_select :roster_date %>
   </p>
 
   <p>
     <%= f.label :company_id%>
     <%= f.collection_select :company_id, Company.all, :id, :name %>
-  </p>
+  </p></h3>
 
   <p>
     <%= f.submit %>
