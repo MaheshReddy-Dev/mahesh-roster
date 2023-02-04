@@ -1,6 +1,25 @@
-<h1>Editing Shift</h1>
-<%= render "shared/errors", obj: @shift %>
-<%= render "form", shift: @shift %>
+<%= render 'shared/errors', obj: @shift %>
+<%= form_with(model: @shift) do |f| %><h3>
+  <p>
+    <%= f.label :Start_time%>
+    <%=f.time_select :start_time, as: :time_select, ampm: true, minute_step: 15 %>
+  </p>
+  
+  <p>
+    <%= f.label :End_time%>
+    <%=f.time_select :end_time, as: :time_select, ampm: true, minute_step: 15 %>
+  </p>
+
+  <p>
+    <%= f.label :employee_id%>
+    <%= f.collection_select :employee_id, Employee.all, :id, :name %>
+  </p></h3>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
 
 <h3>
   <%= link_to "Back to shifts", shifts_path %>

@@ -62,11 +62,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_03_062109) do
   end
 
   create_table "rosters", force: :cascade do |t|
-    t.bigint "company_id", null: false
     t.date "roster_date"
+    t.integer "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_rosters_on_company_id"
   end
 
   create_table "shifts", force: :cascade do |t|
@@ -94,7 +93,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_03_062109) do
   end
 
   add_foreign_key "employees", "companies"
-  add_foreign_key "rosters", "companies"
   add_foreign_key "shifts", "employees"
   add_foreign_key "shifts", "rosters"
 end
