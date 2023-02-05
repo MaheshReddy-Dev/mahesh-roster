@@ -11,17 +11,25 @@
        <h2><%= link_to "Sign out", destroy_user_session_path,data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></h2>
     <% else %>
     <h2>
-     <p>Please sign out and sign in as a  manager to access the Manager Dashboard.</p>
+     <p>Please sign out and sign in as a manager or employee to access the Dashboard.</p>
      <h2><%= link_to "Sign out", destroy_user_session_path,data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></h2>
      <h2><%=link_to "For more details" , "/admin"%></h2>
    <% end %>
-  <% else %>
+
+    <% if current_employee %>
+      <h1><u>Employee DashBoard</u></h1>
+      <h3><%= link_to "View your shifts", shifts_path %> |
+      <%= link_to "For Admin Login", "/admin" %></strong></h3>
+      <h2><%= link_to "Sign out", destroy_employee_session_path,data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></h2>
+    <% end %>
+    <% else %>
+
   <h2>
    <p>Login Page</p>
    <%= link_to "User login" , new_user_session_path %><br/>
-   <%= link_to "manager login" , new_user_session_path %><br/>
+   <%= link_to "Manager login" , new_user_session_path %><br/>
+   <%= link_to "Employee login" , new_employee_session_path%><br/>
    <b>If you are a new user, login to admin and create user</b><br/>
    <%= link_to "Admin Login", "/admin" %></strong>
   </h2>
 <% end %>
-
