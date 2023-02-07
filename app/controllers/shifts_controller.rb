@@ -16,13 +16,13 @@ class ShiftsController < ApplicationController
     def new
         @shift = Shift.new
     end
-    
-    
+
     def create
         @shift = Shift.new(shift_params)
         if @shift.save
-            redirect_to @shift
-            flash[:notice] =  "Shift was successfully created."
+         ShiftMailer.shift_details_email(@employee).deliver_now
+         redirect_to @shift
+         flash[:notice] =  "Shift was successfully created."
         else
         render 'new' , status: :unprocessable_entity
         end
@@ -31,8 +31,8 @@ class ShiftsController < ApplicationController
     
     def update
         if @shift.update(shift_params)
-        redirect_to @shift
-        flash[:notice] = "Shift was successfully updated."
+         redirect_to @shift
+         flash[:notice] = "Shift was successfully updated."
         else
         render 'edit', status: :unprocessable_entity
         end

@@ -1,3 +1,8 @@
-Shift#shift_details_email
-
-<%= @greeting %>, find me in app/views/shift_mailer/shift_details_email.text.erb
+<p>Hello <%= @employee.name %>,</p>
+<p>Here are the details of your shift:</p>
+<% if @shift.roster.present? %>
+<p>Roster Date: <%= @shift.roster.roster_date %></p>
+<% end %>
+<p>Shift Start Time: <%= @shift.start_time %></p>
+<p>Shift End Time: <%= @shift.end_time %></p>
+<p>Click <%= link_to "here", shift_url(@shift) %> to view the details online.</p>

@@ -1,7 +1,7 @@
 class Shift < ApplicationRecord
     belongs_to :roster
     belongs_to :employee
-    after_create :send_shift_details_email
+    after_create :send_email
     validates :start_time, presence: true
     validates :end_time, presence: true
     validate :shift_duration
@@ -13,8 +13,8 @@ class Shift < ApplicationRecord
        errors.add(:end_time, "should be at least 8 hours from the start time")
      end
   end
-  def send_shift_details_email
-    ShiftMailer.with(shift: self).shift_details_email.deliver_later
+  def send_email
+    ShiftMailer.with(shift: self).shift_details_email.deliver!
   end
 
 end

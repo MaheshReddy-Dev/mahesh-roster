@@ -1,19 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-  </head>
-  <body>
-    <h1>Hi <%= @shift.employee.name %>,</h1>
-    <p>
-      Your shift details are:
-      <br>
-      Date: <%= @shift.start_time.strftime("%I:%M %p") %>
-      <br>
-      Time: <%= @shift.end_time.strftime("%I:%M %p") %>
-    </p>
-    <p>
-      You can check the details <%= link_to 'here', shift_details_url(@shift) %>.
-    </p>
-  </body>
-</html>
+<p>Hello <%= @employee.name %>,</p>
+<p>Here are the details of your shift:</p>
+<% if @shift.roster.present? %>
+  <p>Roster Date: <%= @shift.roster.roster_date %></p>
+<% end %>
+<p>Shift Start Time: <%= @shift.start_time %></p>
+<p>Shift End Time: <%= @shift.end_time %></p>
+<p>Click <%= link_to "here", shift_url(@shift) %> to view the details online.</p>
