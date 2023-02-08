@@ -17,6 +17,9 @@ gem 'activeadmin'
 # Required for ActiveAdmin
 gem 'sass-rails'
 gem 'jquery-turbolinks'
+gem  'actionmailer'
+gem "letter_opener", group: :development
+
 
 # Plus integrations with:
 gem 'devise'

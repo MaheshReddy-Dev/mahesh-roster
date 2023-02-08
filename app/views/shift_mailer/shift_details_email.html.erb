@@ -1,8 +1,18 @@
-<p>Hello <%= @employee.name %>,</p>
-<p>Here are the details of your shift:</p>
-<% if @shift.roster.present? %>
-  <p>Roster Date: <%= @shift.roster.roster_date %></p>
-<% end %>
-<p>Shift Start Time: <%= @shift.start_time %></p>
-<p>Shift End Time: <%= @shift.end_time %></p>
-<p>Click <%= link_to "here", shift_url(@shift) %> to view the details online.</p>
+<p>Dear <%= @employee.name %>,</p>
+
+<p>I hope this email finds you in good health and spirits. I wanted to inform you of your upcoming shift schedule at <%= @employee.company.name%>.</p>
+
+<p>Your roster details are as follows:</p>
+
+<p>Date: <%= @shift.roster.roster_date.strftime("%B %d, %Y") %><br/>
+Shift Start Time: <%= @shift.start_time.strftime("%I:%M %p") %><br/>
+Shift End Time: <%= @shift.end_time.strftime("%I:%M %p") %></p><br/>
+
+<p>Please ensure that you arrive at the workplace on time and ready to start your shift. If there are any issues or changes to your schedule, please do let us know as soon as possible so that we can make the necessary arrangements.</p>
+
+<p>If you have any questions or concerns, please don't hesitate to reach out to your supervisor or HR department.</p>
+
+<p>Thank you for your continued dedication and hard work at <%= @employee.company.name%>.<p>
+
+<p>Best regards,</br>
+<%= @employee.company.name%></p>

@@ -16,18 +16,18 @@ class ShiftsController < ApplicationController
     def new
         @shift = Shift.new
     end
-
     def create
+        debugger
         @shift = Shift.new(shift_params)
         if @shift.save
-         ShiftMailer.shift_details_email(@employee).deliver_now
-         redirect_to @shift
-         flash[:notice] =  "Shift was successfully created."
+          @employee = Employee.find_by(id: params[:employee_id])
+          ShiftMailer.shift_details_email(@employee).deliver_now
+          redirect_to @shift
+          flash[:notice] =  "Shift was successfully created."
         else
-        render 'new' , status: :unprocessable_entity
+          render 'new' , status: :unprocessable_entity
         end
     end
-    
     
     def update
         if @shift.update(shift_params)
