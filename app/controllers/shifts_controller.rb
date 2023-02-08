@@ -17,7 +17,6 @@ class ShiftsController < ApplicationController
         @shift = Shift.new
     end
     def create
-        debugger
         @shift = Shift.new(shift_params)
         if @shift.save
           @employee = Employee.find_by(id: params[:employee_id])
